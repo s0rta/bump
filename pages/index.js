@@ -170,7 +170,7 @@ export default function IndexPage() {
       <h1>Bump</h1>
       <div class="sub-header">
         <p>DEMOCRATIC PLAYLIST GENERATOR</p>
-        <p class="version-display">v0.0.1</p>
+        <p class="version-display">v0.0.2</p>
       </div>
 
       {token === "" ? (
