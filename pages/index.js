@@ -16,7 +16,8 @@ const db = getFirestore(firebaseApp);
 
 const setupLink = () => {
   const client_id = "d81bd20d4a5b49b1afedacc81eed3a32";
-  const redirect_uri = "http://192.168.0.157:3000/";
+  // const redirect_uri = "http://192.168.0.157:3000/";
+  const redirect_uri = "https://bump-dev.vercel.app/";
 
   const state = (Math.random() + 1).toString(36).substring(7);
 
