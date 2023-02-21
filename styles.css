@@ -53,8 +53,9 @@ input[type="radio"] {
   width: 18px;
   height: 18px;
   margin-top: 0.40em;
+  margin-right: 0.20em;
   transform: translateY(-0.05em);
-  display: inline-block;
+  display: inline-grid;
   place-content: center;
 }
 
