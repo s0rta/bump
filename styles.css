@@ -41,3 +41,34 @@ p {
   padding: 3px;
   font-size: 0.6em;
 }
+
+input[type="radio"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: black;
+  border: 0.15em solid black;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: 0.40em;
+  transform: translateY(-0.05em);
+  display: inline-block;
+  place-content: center;
+}
+
+
+input[type="radio"]::before {
+  content: "";
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #000;
+  width: 10px;
+  height: 10px;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
