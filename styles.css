@@ -73,3 +73,24 @@ input[type="radio"]::before {
 input[type="radio"]:checked::before {
   transform: scale(1);
 }
+
+input[type="text"] {
+  border: 0.15em solid black;
+}
+
+a {
+  color: black;
+}
+
+.body {
+  margin-top: 0.36em;
+}
+
+button {
+  border: 0.15em solid black;
+  background-color: rgba(0, 0, 0, 0)
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.2)
+}

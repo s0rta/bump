@@ -40,7 +40,7 @@ const setupLink = () => {
 const getReturnedParams = () => {
   const hash = window.location.hash.substring(1);
 
-  const result = hash.split("&").reduce(function (res, item) {
+  const result = hash.split("&").reduce(function(res, item) {
     var parts = item.split("=");
     res[parts[0]] = parts[1];
     return res;
@@ -54,7 +54,7 @@ export default function IndexPage() {
   const [token, setToken] = useState(() => "");
   const [user, setUser] = useState(() => "");
   const [playlists, setPlaylists] = useState(() => []);
-  const [selectedPlaylist, setSelectedPlaylist] = useState(() => {});
+  const [selectedPlaylist, setSelectedPlaylist] = useState(() => { });
   const [songs, setSongs] = useState(() => []);
   const [password, setPassword] = useState(() => "");
   const [userId, setUserId] = useState(() => "");
@@ -128,7 +128,7 @@ export default function IndexPage() {
 
       const randomSong =
         randomUser?.data().playlist[
-          Math.floor(Math.random() * randomUser.data().playlist.length)
+        Math.floor(Math.random() * randomUser.data().playlist.length)
         ];
       if (randomSong && !playlist.includes(randomSong)) {
         playlist.push(randomSong);
@@ -152,9 +152,9 @@ export default function IndexPage() {
         setPlaylistUrl(data.external_urls.spotify);
         fetch(
           "https://api.spotify.com/v1/playlists/" +
-            data.id +
-            "/tracks?uris=" +
-            playlist.join(","),
+          data.id +
+          "/tracks?uris=" +
+          playlist.join(","),
           {
             headers: {
               Authorization: "Bearer " + urlParams.access_token,
@@ -171,67 +171,69 @@ export default function IndexPage() {
       <h1>Bump</h1>
       <div class="sub-header">
         <p>DEMOCRATIC PLAYLIST GENERATOR</p>
-        <p class="version-display">v0.0.2</p>
+        <p class="version-display">v0.0.3</p>
       </div>
+      <div className="body">
 
-      {token === "" ? (
-        <a href={configUrl}>Login</a>
-      ) : (
-        <div>
-          <input
-            type="radio"
-            id="user_type_host"
-            name="user_type"
-            onClick={() => handleUserChange("host")}
-          />
-          <label for="user_type_host">Host</label> <br />
-          <input
-            type="radio"
-            id="user_type_guest"
-            name="user_type"
-            onClick={() => handleUserChange("guest")}
-          />
-          <label for="user_type_guest">Guest</label>
-          <br />
-          {user === "host" && (
-            <div>
-              <input
-                type="text"
-                onChange={(e) => setPlaylistName(e.target.value)}
-                placeholder="Playlist Name"
-                value={playlistName}
-              />{" "}
-              <button onClick={generatePlaylist}>Generate Playlist</button>
-            </div>
-          )}
-          {playlistUrl && <a href={playlistUrl}>Open playlist</a>}
-          <br />
-          <input type="text" id="passwordInput" placeholder="password" />{" "}
-          <button onClick={() => handleHostPassword()}>Set password</button>
-          <br />
-          <br />
-          {playlists.map((n) => {
-            return (
-              <>
+        {token === "" ? (
+          <a href={configUrl}>LOGIN</a>
+        ) : (
+          <div>
+            <input
+              type="radio"
+              id="user_type_host"
+              name="user_type"
+              onClick={() => handleUserChange("host")}
+            />
+            <label for="user_type_host">HOST</label> <br />
+            <input
+              type="radio"
+              id="user_type_guest"
+              name="user_type"
+              onClick={() => handleUserChange("guest")}
+            />
+            <label for="user_type_guest">GUEST</label>
+            <br />
+            {user === "host" && (
+              <div>
                 <input
-                  type="radio"
-                  id={n.id}
-                  key={n.id}
-                  name="playlist"
-                  onClick={() => handlePlaylistChange(n)}
-                />
-                <label htmlFor={n.id}>{n.name}</label>
-                <br />
-              </>
-            );
-          })}
-          <br />
-          <br />
-          {/* {!fbSongsLoading && */}
-          {/*   fbSongs && */}
-          {/*   fbSongs.docs.map((doc) => console.log(doc.data()))} */}
-        </div>
-      )}
+                  type="text"
+                  onChange={(e) => setPlaylistName(e.target.value)}
+                  placeholder="Playlist Name"
+                  value={playlistName}
+                />{" "}
+                <button onClick={generatePlaylist}>Generate Playlist</button>
+              </div>
+            )}
+            {playlistUrl && <a href={playlistUrl}>Open playlist</a>}
+            <br />
+            <input type="text" id="passwordInput" placeholder="PASSWORD" />{" "}
+            <button onClick={() => handleHostPassword()}>SET PASSWORD</button>
+            <br />
+            <br />
+            {playlists.map((n) => {
+              return (
+                <>
+                  <input
+                    type="radio"
+                    id={n.id}
+                    key={n.id}
+                    name="playlist"
+                    onClick={() => handlePlaylistChange(n)}
+                  />
+                  <label htmlFor={n.id}>{n.name}</label>
+                  <br />
+                </>
+              );
+            })}
+            <br />
+            <br />
+            {/* {!fbSongsLoading && */}
+            {/*   fbSongs && */}
+            {/*   fbSongs.docs.map((doc) => console.log(doc.data()))} */}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
