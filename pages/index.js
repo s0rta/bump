@@ -195,18 +195,17 @@ export default function IndexPage() {
             <label for="user_type_guest">GUEST</label>
             <br />
             {user === "host" && (
-              <div>
+              <div className="host-inputs">
                 <input
                   type="text"
                   onChange={(e) => setPlaylistName(e.target.value)}
-                  placeholder="Playlist Name"
+                  placeholder="PLAYLIST NAME"
                   value={playlistName}
                 />{" "}
-                <button onClick={generatePlaylist}>Generate Playlist</button>
+                <button onClick={generatePlaylist}>GENERATE PLAYLIST</button>
               </div>
             )}
-            {playlistUrl && <a href={playlistUrl}>Open playlist</a>}
-            <br />
+            {playlistUrl && <a href={playlistUrl}>OPEN PLAYLIST</a>}
             <input type="text" id="passwordInput" placeholder="PASSWORD" />{" "}
             <button onClick={() => handleHostPassword()}>SET PASSWORD</button>
             <br />

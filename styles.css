@@ -76,6 +76,8 @@ input[type="radio"]:checked::before {
 
 input[type="text"] {
   border: 0.15em solid black;
+  background-color: rgba(0, 0, 0, 0);
+  margin-top: 0.36em;
 }
 
 a {
@@ -88,6 +90,7 @@ a {
 
 button {
   border: 0.15em solid black;
+  border-radius: 6%;
   background-color: rgba(0, 0, 0, 0)
 }
 
